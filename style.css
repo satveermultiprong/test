@@ -1,0 +1,135 @@
+/* style */
+* {
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+
+
+}
+
+body {
+    background-color: #7a99c0;
+    display: flex;
+}
+
+h1 {
+    padding: 20px;
+}
+
+header {
+    padding: 15px;
+    height: 100vh;
+    width: 20vw;
+    /* Adjust this width as needed */
+    position: fixed;
+    /* Change to fixed position */
+    display: flex;
+    flex-direction: column;
+    /* Align items vertically */
+    justify-content: flex-start;
+    /* Align items to the start of the container */
+    text-align: center;
+    background-color: #93b5f3;
+}
+
+header a {
+    font-size: x-large;
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+    background-color: #ff6b81;
+    border-radius: 10px;
+    display: block;
+    /* Change to block display */
+}
+
+.board ,.head {
+    left: 20%;
+    top: 5px;
+    height: 10vh;
+    width: 75vw;
+    border: 1px solid black;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+/* .head h2 {
+    left: 0px;
+}
+
+.head h3 {
+    right: 0%;
+} */
+
+.board {
+    /* position: fixed; */
+    /* display: flex; */
+    /* right: 25%; */
+    /* top: 5%; */
+    height: 100vh;
+    width: 77%;
+    /* grid-template-columns: 1fr 1fr 1fr ; */
+
+}
+
+.des {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    height: 150px;
+    width: 250px;
+    border: 1px solid black;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    background-color: aqua;
+}
+
+
+form {
+    /* position: absolute; */
+    font-size: larger;
+    top: 20%;
+    right: 10%;
+    margin: 10px;
+
+}
+.sub{
+    padding: 10px;
+    height: 20px;
+    width: 30px;
+}
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 30px;
+    font-size: larger;
+}
+
+.report {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    right: 0%;
+}
+
+#myChart {
+    display: flex;
+    /* position: fixed; */
+    top: 50%;
+
+
+}
+
+#Chart {
+    top: 50%;
+
+}
