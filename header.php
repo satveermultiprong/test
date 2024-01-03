@@ -9,6 +9,8 @@ require("timeout.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <style>
@@ -25,16 +27,30 @@ require("timeout.php");
     <header>
         <div class="con">
             <h1>Multi Expense</h1>
-            <a href="deshboard.php">Dashboard</a>
-            <a href="add.php">Add Expense</a>
+           
+            <div class="content">
+            <i class="material-icons" style="font-size:36px" foraccesskey="desh" >&#xe871;</i>
+            <a href="deshboard.php" id="desh"> Dashboard</a>
+            </div>
+
+            <div class="content">
+                <i class="material-icons" style="font-size:36px">playlist_add</i>
+                <a href="add.php">Add Expense</a>
+            </div>
             <!-- <a href="">Category</a> -->
+            <div class="content">
+            <i class="material-icons" style="font-size:36px">history</i>
             <a href="report.php">Transection</a>
-            <a href="logout.php">Logout</a>
+            </div>
+
+           
+            <div class="content">
+            <i class="glyphicon" style="font-size:36px">&#xe163;</i>
+             <a href="logout.php">Logout</a>
+            </div>
+           
         </div>
     </header>
-<div>
-
-</div>
 </body>
 
 </html>

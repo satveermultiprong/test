@@ -16,10 +16,7 @@ $dateFilterEnd = isset($_GET['date_filter_end']) ? $_GET['date_filter_end'] : ''
     <title>Document</title>
 </head>
 <body>
-  <div class="report">
-
-
-  
+  <div class="main">
     <h2>Transection</h2>
 
    <!-- Filter form -->
@@ -35,7 +32,6 @@ $dateFilterEnd = isset($_GET['date_filter_end']) ? $_GET['date_filter_end'] : ''
         <input type="date" name="date_filter_start" id="date_filter_start" value="<?php echo $dateFilterStart; ?>">
         <label for="date_filter_end">Filter by End Date:</label>
         <input type="date" name="date_filter_end" id="date_filter_end" value="<?php echo $dateFilterEnd; ?>">
-
         <input class="sub" type="submit" value="Filter" >
     </form>
 

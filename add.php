@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
     <title>Document</title>
 </head>
 <body>
-    <div class="report">
+    <div class="main">
 
     <h2>
         Add Expense

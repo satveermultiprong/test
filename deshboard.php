@@ -15,53 +15,55 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 <body>
   
   <div class="board">
-    <div class="head">
-     <h2>Overview</h2>
+
+    <div class="head" >
+        <h2>Overview</h2>
         <h3>satveer</h3>
-  
     </div>
     
-    <div class="des">
+    <div class="des" id="a" > 
+      <span>8374</span>
          <h2>Manthly Expense</h2>  
-         <span>8374</span>
     </div>
 
-    <div class="des">
+    <div class="des" id="b" >
+      <span>8374</span>
          <h2>Manthly Expense</h2>  
-         <span>8374</span>
     </div>
 
-    <div class="des">
+    <div class="des" id="c" >
+      <span>8374</span>
          <h2>Manthly Expense</h2>  
-         <span>8374</span>
     </div>
 
-    <div class="des">
+    <div class="des" id="d" >
+      <span>8374</span>
          <h2>Manthly Expense</h2>  
-         <span>8374</span>
     </div>
 
-    <div class="des">
+    <div class="des" id="e" >
+      <span>8374</span>
          <h2>Manthly Expense</h2>  
-         <span>8374</span>
     </div>
 
-    <div class="des">
+    <div class="des" id="f" >
+      <span>8374</span>
          <h2>Manthly Expense</h2>  
-         <span>8374</span>
     </div>
 
-
+  <div class="charts">
     <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
     <canvas id="Chart" style="width:100%;max-width:600px"></canvas>
+
+  </div>
 
   </div>
     
 
 </body>
     <script>
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
+const xValues = ["Food", "Transpotetion", "Statinary", "fation", "eucation"];
+const yValues = [55, 49, 44, 24, 18];
 const barColors = ["red", "green","blue","orange","brown"];
 
 new Chart("myChart", {
