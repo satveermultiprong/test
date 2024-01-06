@@ -57,13 +57,13 @@ if(isset($_POST['submit'])){
             <option value="Groceries">Groceries</option>
             <option value="Health care">Health care</option>
             <option value="Electronics">Electronics</option>
-            <option value="Insurance">Insurance</option>
+            <option value="EMI">EMI</option>
             <option value="Rent">Rent</option>
             <option value="Internet">Internet</option>
             <option value="Entertainment">Entertainment</option>
             <option value="Cellphone">Cellphone</option>
             <option value="Education">Education</option>
-            <option value="Investing">Investing</option>
+            <option value="investment">investment</option>
         </select> 
         <input type="text" placeholder="Item name" name="item">
         <input type="date" name="date" id="" name="date">
@@ -88,7 +88,7 @@ if(isset($_POST['submit'])){
           <th>S.no.</th>
           <th>Category</th>
           <th>Item</th>
-          <th>date</th>
+          <th>Date</th>
           <th>Mode of payment</th>
           <th>Expense</th>
           

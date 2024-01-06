@@ -1,0 +1,22 @@
+
+ @media screen and (max-width: 1100px) {
+        .charts{
+            margin-top:20px;
+            width:78vw;
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            /* padding: 40px; */
+            font-size: large;
+        }
+
+        #myChart{
+            max-width:55vw;
+        }
+        #myLineChart{
+            max-width: 55vw;
+        }
+    }

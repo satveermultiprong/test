@@ -1,4 +1,5 @@
 <?php
+include("config.php");
 include("header.php");
 ?>
 <!DOCTYPE html>
@@ -7,9 +8,10 @@ include("header.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media_style.css">
     <script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-</script>
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+     </script>
     <title>Document</title>
 </head>
 <body>
@@ -22,82 +24,137 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     </div>
     
     <div class="des" id="a" > 
-      <span>8374</span>
-         <h2>Manthly Expense</h2>  
+      <?php
+      $twodate = date("Y-m-d");
+      
+      $sql = "SELECT sum(price) as total_price FROM `expense` WHERE DATE(expanse_date) = '$twodate'" ;
+      $result = mysqli_query($con, $sql); 
+      while ($row = mysqli_fetch_array($result))
+      {
+        $price = $row["total_price"];
+      }
+      ?>
+      <span><?php echo $price; ?></span>
+         <h2>Today Expense</h2>  
     </div>
 
-    <div class="des" id="b" >
-      <span>8374</span>
-         <h2>Manthly Expense</h2>  
+   <div class="des" id="b" >
+     <?php
+      $startdatemonth = date("Y-m-01");
+      // $twodate = date("Y-m-d");
+      $sql1 = "SELECT sum(price) as total_price FROM `expense` WHERE expanse_date BETWEEN '$startdatemonth' AND '$twodate'" ;
+      $result1 = mysqli_query($con, $sql1); 
+      while ($row = mysqli_fetch_array($result1))
+      {
+        $price1 = $row["total_price"];
+      }
+      ?>
+      <span><?php echo $price1; ?></span>
+         <h2>Monthly Expense</h2>  
     </div>
 
     <div class="des" id="c" >
-      <span>8374</span>
-         <h2>Manthly Expense</h2>  
+    <?php
+      $startdateyear = date("Y-01-01");
+      // $twodate = date("Y-m-d");
+      
+      $sql2 = "SELECT sum(price) as total_price FROM `expense` WHERE expanse_date BETWEEN '$startdateyear' AND '$twodate'" ;
+      $result2 = mysqli_query($con, $sql2); 
+      while ($row = mysqli_fetch_array($result2))
+      {
+        $price2 = $row["total_price"];
+      }
+      ?>
+      <span><?php echo $price2; ?></span>
+         <h2>This Year Expense</h2>  
     </div>
 
     <div class="des" id="d" >
-      <span>8374</span>
-         <h2>Manthly Expense</h2>  
-    </div>
-
-    <div class="des" id="e" >
-      <span>8374</span>
-         <h2>Manthly Expense</h2>  
-    </div>
-
-    <div class="des" id="f" >
-      <span>8374</span>
-         <h2>Manthly Expense</h2>  
-    </div>
-
-  <div class="charts">
-    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-    <canvas id="Chart" style="width:100%;max-width:600px"></canvas>
-
-  </div>
-
-  </div>
+    <?php
     
+      $sqli = "SELECT sum(price) as total_price FROM `expense`" ;
+      $resulti = mysqli_query($con, $sqli); 
+      while ($row = mysqli_fetch_array($resulti))
+      {
+        $price3 = $row["total_price"];
+      }
+      ?>
+      <span><?php echo $price3; ?></span>
+         <h2>Total Expense</h2>  
+    </div>
 
+    <!-- .................................................... -->
+
+     <div class="charts">
+            <canvas id="myChart"></canvas>
+            <canvas id="myLineChart"></canvas>  
+
+      </div>
+
+  </div>
 </body>
-    <script>
-const xValues = ["Food", "Transpotetion", "Statinary", "fation", "eucation"];
-const yValues = [55, 49, 44, 24, 18];
-const barColors = ["red", "green","blue","orange","brown"];
 
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "World Wine Production 2018"
-    }
-  }
-});
-new Chart("Chart", {
-  type: "doughnut",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "World Wide Wine Production 2018"
-    }
-  }
-});
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+<script>
+// Fetch data using AJAX
+document.addEventListener("DOMContentLoaded", function () {
+fetch('data.php')
+    .then(response => response.json())
+    .then(data => {
+        const xValues = Object.keys(data);
+        const yValues = Object.values(data);
+        const barColors = ["red", "green", "blue", "orange", "#747d8c", "#00d2d3" , "#341f97","#B53471","#C4E538"];
+
+        // Bar chart
+        new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Expense by Category "
+                }
+            }
+        });
+
+
+        fetch('data.php?chart=line')
+                        .then(response => response.json())
+                        .then(lineData => {
+                            const lineXValues = Object.keys(lineData);
+                            const lineYValues = Object.values(lineData);
+
+                            // Line chart
+                            new Chart("myLineChart", {
+                                type: "line",
+                                data: {
+                                    labels: lineXValues,
+                                    datasets: [{
+                                        borderColor: "purple",
+                                        data: lineYValues,
+                                        fill: false,
+                                        label: "Line Chart"
+                                    }]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: "Yearly Expense (Line Chart)"
+                                    }
+                                }
+                            });
+                        })
+                        .catch(error => console.error('Error fetching line chart data:', error));
+                })
+
+    .catch(error => console.error('Error fetching data:', error));
+  });
 </script>
 </html>

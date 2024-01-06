@@ -26,7 +26,18 @@ $dateFilterEnd = isset($_GET['date_filter_end']) ? $_GET['date_filter_end'] : ''
             <option value="all" <?php echo ($categoryFilter === 'all') ? 'selected' : ''; ?>>All</option>
             <option value="Food" <?php echo ($categoryFilter === 'Food') ? 'selected' : ''; ?>>Food</option>
             <option value="Transportation" <?php echo ($categoryFilter === 'Transportation') ? 'selected' : ''; ?>>Transportation</option>
+            <option value="Health care" <?php echo ($categoryFilter === 'Health care') ? 'selected' : ''; ?>>Health care</option>
+            <option value="Groceries" <?php echo ($categoryFilter === 'Groceries') ? 'selected' : ''; ?>>Groceries</option>
+            <option value="Education" <?php echo ($categoryFilter === 'Education') ? 'selected' : ''; ?>>Education</option>
+            <option value="Fastion" <?php echo ($categoryFilter === 'Fastion') ? 'selected' : ''; ?>>Fastion</option>
+            <option value="Stationery" <?php echo ($categoryFilter === 'Stationery') ? 'selected' : ''; ?>>Stationery</option>
+            <option value="Electronics" <?php echo ($categoryFilter === 'Electronics') ? 'selected' : ''; ?>>Electronics</option>
+            <option value="Entertainment" <?php echo ($categoryFilter === 'Entertainment') ? 'selected' : ''; ?>>Entertainment</option>
+            <option value="investment" <?php echo ($categoryFilter === 'investment') ? 'selected' : ''; ?>>Investment</option>
+            <option value="EMI" <?php echo ($categoryFilter === 'EMI') ? 'selected' : ''; ?>>EMI</option>
+            
         <!-- Add more options for other categories -->
+
         </select> 
         <label for="date_filter_start">Filter by Start Date:</label>
         <input type="date" name="date_filter_start" id="date_filter_start" value="<?php echo $dateFilterStart; ?>">
