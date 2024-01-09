@@ -7,8 +7,8 @@ include("header.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media_style.css">
+  
+  
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
      </script>
@@ -121,6 +121,7 @@ fetch('data.php')
                     display: true,
                     text: "Expense by Category "
                 }
+             
             }
         });
 
@@ -148,6 +149,7 @@ fetch('data.php')
                                         display: true,
                                         text: "Yearly Expense (Line Chart)"
                                     }
+                                    
                                 }
                             });
                         })

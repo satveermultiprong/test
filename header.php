@@ -26,14 +26,15 @@ require("timeout.php");
 </head>
 
 <body>
-    <span class="material-symbols-outlined open" onclick="open">menu</span>
-    <!-- <img src="image/menu_FILL0_wght500_GRAD0_opsz24.png" alt="">    -->
-    <div class="sidebar">
+    <nav>
+        <span class="material-symbols-outlined open" onclick="toggleSidebar()">menu</span>
+        <!-- <h2>Multi-Expense</h2> -->
 
-       <header>
-           <h1>Multi-Ex</h1>
-           <span class="material-symbols-outlined back" id="back">close</span>
-        </header>      
+    </nav>
+    <div class="sidebar" id="sidebar">
+        
+            <h1>Multi-Ex</h1>
+             
             <div class="content">
             <a href="deshboard.php" id="desh"><i class="material-icons" foraccesskey="desh" >&#xe871;</i> Dashboard</a>
             </div>
@@ -43,7 +44,7 @@ require("timeout.php");
             </div>
             <!-- <a href="">Category</a> -->
             <div class="content">
-            <a href="report.php"> <i class="material-icons">history</i>Transection</a>
+            <a href="report.php"> <i class="material-icons">history</i>Transactions</a>
             </div>
 
            
@@ -53,8 +54,18 @@ require("timeout.php");
            
     </div>
 </body>
-<!-- <script>
-    function side() {
+<script>
+     function toggleSidebar() {
+        var sidebar = document.getElementById("sidebar");
+        var toggleButton = document.querySelector('.open');
+
+        if (sidebar.style.left === "0px" || sidebar.style.left === "") {
+            sidebar.style.left = "-50vw";
+            toggleButton.textContent = 'menu';
+        } else {
+            sidebar.style.left = "0";
+            toggleButton.textContent = 'close';
+        }
     }
-</script> -->
+</script>
 </html>
