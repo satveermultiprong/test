@@ -21,7 +21,7 @@ $result = mysqli_query($con ,$sql);
 
 if($result==true){
 
-header("Location:http://localhost/test/login.php");
+header("Location:{$baseurl}login.php");
 
 exit();
     } else {
@@ -37,39 +37,12 @@ exit();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <style>
-        * {
-            margin: 0%;
-            padding: 0%;
-        }
-
-        .con {
-            height: 300px;
-            width: 350px;
-            background-color: #a4b0be;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            /* display: flex; */
-            top: 200px;
-            border: 2px solid black;
-            margin-top: 10%;
-
-        }
-        label
-        {
-            font-size: 20px;
-        }
-        input{
-            box-sizing: border-box;
-            font-size: 15px;
-        }
-    </style>
 </head>
 
 <body>
-    <center>
+  
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" >
         <div class="con"><br>
             <h1>Sinup</h1> <br> 
@@ -85,13 +58,12 @@ exit();
             <label for="" id="password">Password</label>
             <input type="text" name="password" id="" required><br> <br>
             
-            <input type="submit" value="submit" name="submit"><br>
+            <button type="submit" value="submit" name="submit">Submit</button><br>
             <a href="login.php">login</a>
     
         </div>
         </form>
         
-    </center>
 
 </body>
 

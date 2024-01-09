@@ -77,6 +77,10 @@ head{
         width: 37vw;
         margin: 10px;
     }
+    .main{
+        margin-left: 0;
+        width: 100vw;
+    }
 }
 
 @media screen and (max-width: 465px){
@@ -121,5 +125,9 @@ head{
     }
     #myLineChart{
         font-size:small; 
+    }
+    main{
+        margin-left: 0;
+        width: 100vw;
     }
 }

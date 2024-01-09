@@ -27,16 +27,14 @@ if(mysqli_num_rows($result)>0){
     setcookie("password",$_POST["password"],time()-60*60*24);
    }
 //.........................................
-    header("Location:http://localhost/test/deshboard.php");
+    header("Location:{$baseurl}/deshboard.php");
     
     exit();
-}else {
+         }else {
             // $_SESSION["error"] = "username and password is not match";
             $msg ="please enter valid username and password";
-        
         }
-    
-}
+       }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,36 +42,8 @@ if(mysqli_num_rows($result)>0){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <style>
-        * {
-            margin: 0%;
-            padding: 0%;
-        }
-
-        .con {
-            margin: 10%;
-            height: 320px;
-            width: 250px;
-            background-color: #a4b0be;
-            text-align: center;
-            justify-content: center;
-            position: relative;
-            border: 2px solid black;
-            
-        }
-        label
-        {
-            font-size: 20px;
-        }
-        input{
-            box-sizing: border-box;
-            font-size: 15px;
-        }
-        #result{
-            color: red;
-        }
-    </style>
 </head>
 
 <body>
@@ -87,7 +57,7 @@ if(mysqli_num_rows($result)>0){
         $pass = "";
     }
     ?>
-    <center>
+
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
     <div class="con">
             <h1>Login</h1> <br> <br>
@@ -98,17 +68,16 @@ if(mysqli_num_rows($result)>0){
             <label for="password" >Password</label><br>
             <input type="password" name="password" id="password" value="<?php echo $pass ?>"><br> <br>
 
-            <input type="checkbox" name="remember_me" id="remember_me">
-            <label for="remember_me" style="font-size: medium;" >Remember me</label><br><br>
+            <input type="checkbox" name="remember_me" id="remember_me" >
+            <label for="remember_me" >Remember me</label><br><br>
 
-            <input type="submit" value="submit" name="submit";><br>
+            <button type="submit" value="submit" name="submit">Submit</button><br>
             <a href="sinup.php">sinup</a>
             <div id="result" ><?php echo $msg ?></div>
     
         </div>
                 </form>
         
-    </center>
 </body>
 
 </html> 

@@ -14,6 +14,46 @@ body {
     /* display: block; */
     /* overflow: scroll; */
 }
+.con {
+    display: block;
+    position: relative;
+    left: 38%;
+    width: 20%;
+    /* height: 60%; */
+    background-color: #a4b0be;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.con h1 {
+    margin-bottom: 10px;
+}
+
+.con label {
+    font-size: 20px;
+}
+
+.con input {
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 80%;
+    padding: 8px;
+}
+
+#result {
+    color: red;
+}
+
+.con a {
+    text-decoration: none;
+    color: #3498db; /* Set your desired link color */
+}
+.con button{
+    padding: 10px;
+
+}
 nav{
     width: 100vw;
     height: 50px;
@@ -26,12 +66,12 @@ nav{
     display: none;
     
 }
-h1{
+/* h1{
     /* display:inline-block; */
-    position: fixed;
+    /* position: fixed;
     left: 50%;
     justify-content: center;
-}
+} */ */
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -67,7 +107,7 @@ h1{
     background-color: black;
 }
 
-  h1{  
+ .sidebar h1{  
     color: #c7cfdb;
     position: relative;
     left: 0px;
