@@ -46,7 +46,7 @@ $dateFilterEnd = isset($_GET['date_filter_end']) ? $_GET['date_filter_end'] : ''
         <input class="sub" type="submit" value="Filter" >
     </form>
 
-    <table style="margin:50px;">
+    <table>
       <tr>
         <th>S.no.</th>
         <th>Category</th>

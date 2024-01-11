@@ -28,19 +28,22 @@ require("timeout.php");
 <body>
     <nav>
         <span class="material-symbols-outlined open" onclick="toggleSidebar()">menu</span>
-        <!-- <h2>Multi-Expense</h2> -->
+        <h2>Multi-Expense</h2>
 
     </nav>
     <div class="sidebar" id="sidebar">
-        
-            <h1>Multi-Ex</h1>
-             
+        <a href="deshboard.php"> <h1>Multi-Expense</h1></a>
+           
             <div class="content">
             <a href="deshboard.php" id="desh"><i class="material-icons" foraccesskey="desh" >&#xe871;</i> Dashboard</a>
             </div>
 
             <div class="content">
                 <a href="add.php"><i class="material-icons">playlist_add</i>Add Expense</a>
+            </div>
+            
+            <div class="content">
+                <a href="manage_categories.php"><i class="material-icons">playlist_add</i>Add Category</a>
             </div>
             <!-- <a href="">Category</a> -->
             <div class="content">

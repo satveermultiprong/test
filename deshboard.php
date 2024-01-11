@@ -21,7 +21,8 @@ include("header.php");
         <h2>Overview</h2>
         <h3>satveer</h3>
     </div>
-    
+    <div class="maindes">
+
     <div class="des" id="a" > 
       <?php
       $twodate = date("Y-m-d");
@@ -81,7 +82,7 @@ include("header.php");
       <span><?php echo $price3; ?></span>
          <h2>Total Expense</h2>  
     </div>
-
+ </div>
     <!-- .................................................... -->
      <div class="charts">
             <canvas id="myChart"></canvas>

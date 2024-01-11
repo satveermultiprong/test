@@ -50,8 +50,12 @@ nav{
     .board {
         /* display: block; */
         margin-left: 0%;
+        padding:0 20px;
         width: 100vw;
 
+    }
+    .head{
+        font-size: 1vw;
     }
 
     .charts {
@@ -62,11 +66,11 @@ nav{
     }
 
     #myChart {
-        max-width: 80vw;
+        max-width: 100%;
     }
 
     #myLineChart {
-        max-width: 80vw;
+        max-width: 100%;
 
     }
 head{
@@ -102,21 +106,26 @@ head{
     
     }
     .des{
-        padding: 10px;
+        padding: 14px;
         margin: 10px;
         height: 90px;
-        width: 30vw;
+        width: 36vw;
         align-items: center;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
     }
     .des span{
         font-size:x-large;
     }
     .des h2{
-        font-size:1.5rem;
+        font-size:1.2rem;
         color: #ffffff;
         font-weight: bold;
         
+    }
+    .charts {
+        width: 100%;
     }
     #myChart{
         font-size: medium;

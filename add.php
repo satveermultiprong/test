@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
     </form>
    <h2>Our Twoday Expense</h2>
    
-    <table style="margin:50px;">
+    <table>
         <tr>
           <th>S.no.</th>
           <th>Category</th>
