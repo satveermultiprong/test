@@ -277,10 +277,12 @@ form {
 table{
     border: 1px solid black; 
     margin:1vw 5vw;
+    border-collapse: collapse;
 }
 
 th,
 td {
+    /* border-collapse: collapse; */
     border: 1px solid black;
     border-collapse: collapse;
     padding: 1%;

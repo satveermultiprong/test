@@ -43,7 +43,7 @@ require("timeout.php");
             </div>
             
             <div class="content">
-                <a href="manage_categories.php"><i class="material-icons">playlist_add</i>Add Category</a>
+                <a href="manage_categories.php"><i class="material-icons">category</i>Categories</a>
             </div>
             <!-- <a href="">Category</a> -->
             <div class="content">
@@ -52,7 +52,7 @@ require("timeout.php");
 
            
             <div class="content">
-             <a href="logout.php"> <i class="glyphicon" >&#xe163;</i>Logout</a>
+             <a href="logout.php"> <i class="material-icons" >logout</i>Logout</a>
             </div>
            
     </div>

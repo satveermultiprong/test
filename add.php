@@ -1,11 +1,7 @@
 <?php
 include("header.php");
 include("config.php");
-
 $category = $item = $price = $date= $mode =  "";
-$total = 0;
-// $id = $category1 = $item1 = $date1 =$mode1 = $price1 = "";
-// $result1 ="";
 $total = 0;
 $errorMsg = "";
 
@@ -64,6 +60,31 @@ if (isset($_POST['submit'])) {
             echo "Data not inserted";
         }
     }
+        // Store error message in session
+        $_SESSION['errorMsg'] = $errorMsg;
+}
+// Check if there's an error message in the session
+if (isset($_SESSION['errorMsg'])) {
+    $errorMsg = $_SESSION['errorMsg'];
+    unset($_SESSION['errorMsg']); // Clear the session variable
+}
+// 
+// Delete expense logic
+if (isset($_GET['delete_expense'])) {
+    // Get the selected expense ID from the URL
+    $expenseId = $_GET['delete_expense'];
+
+    // Delete the selected expense
+    $deleteExpenseQuery = "DELETE FROM expense WHERE id = '$expenseId'";
+    $deleteExpenseResult = mysqli_query($con, $deleteExpenseQuery);
+
+    if ($deleteExpenseResult) {
+        echo "Expense deleted successfully";
+        header("Location: {$_SERVER['PHP_SELF']}");
+        exit();
+    } else {
+        echo "Failed to delete expense";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -88,20 +109,22 @@ if (isset($_POST['submit'])) {
         <label for="cat">Category:-</label>
         <select name="category" id="cat" >
             <option value=""></option>
-            <option value="Food">Food</option>
-            <option value="Transportation">Transportation</option>
-            <option value="Fastion">Fastion</option>
-            <option value="Stationery">Stationery</option>
-            <option value="Groceries">Groceries</option>
-            <option value="Health care">Health care</option>
-            <option value="Electronics">Electronics</option>
-            <option value="EMI">EMI</option>
-            <option value="Rent">Rent</option>
-            <option value="Internet">Internet</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Cellphone">Cellphone</option>
-            <option value="Education">Education</option>
-            <option value="investment">investment</option>
+     <!-- Display category from category table -->
+        <?php
+        $facthcategory = "SELECT * from category order by category_name asc";
+        $fatchcategoryquery = mysqli_query($con,$facthcategory);
+
+        if($fatchcategoryquery == true){
+    
+        while($row1 = mysqli_fetch_array($fatchcategoryquery)){
+            $category_id = $row1["id"];
+            $category_name = $row1["category_name"];
+        ?>
+            <option value="<?php echo $category_id ?>" ><?php echo $category_name ?></option>
+        <?php
+        }
+    }
+        ?>
         </select> 
         <input type="text" placeholder="Item name" name="item">
         <input type="date" name="date" id="" name="date">
@@ -129,6 +152,7 @@ if (isset($_POST['submit'])) {
           <th>Date</th>
           <th>Mode of payment</th>
           <th>Expense</th>
+          <th>Action</th>
           
         </tr>
 
@@ -136,17 +160,17 @@ if (isset($_POST['submit'])) {
 
        $currentdate = date("Y-m-d");
        
-       $sqli = "SELECT * FROM expense WHERE date(added_on) = '$currentdate'";
+       $sqli = "SELECT expense.*,category.category_name FROM expense LEFT JOIN category  ON expense.category = category.id WHERE date(added_on) = '$currentdate'";
        $result1 = mysqli_query($con, $sqli);
 
    if($result1 == true){
     $count = mysqli_num_rows($result1);
   
-//    $sn = 1;
+   $sn = 1;
    if($count > 0){
    while($row = mysqli_fetch_array($result1)){
     $id = $row["id"];
-    $category1 = $row["category"];
+    $category1 = $row["category_name"];
     $item1 = $row["item"];
     $date1 = $row["expanse_date"];
     $mode1 = $row["payment_mode"];
@@ -156,12 +180,13 @@ if (isset($_POST['submit'])) {
         ?>
     
    <tr>
-    <td><?php echo $id; ?></td>
+    <td><?php echo  $sn++; ?></td>
     <td><?php echo $category1; ?></td>
     <td><?php echo $item1; ?></td>
     <td><?php echo $date1 ; ?></td>
     <td><?php echo $mode1; ?></td>
     <td><?php echo $price1 ;?></td>
+    <td><?php echo "<a href='" . $_SERVER['PHP_SELF'] . "?delete_expense=" . $row["id"] . "'>Delete</a>" ?></td>
   </tr>
 
   <?php

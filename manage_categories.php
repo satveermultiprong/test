@@ -79,10 +79,10 @@ if (isset($_GET['delete_category'])) {
             <?php
             $getCategoriesQuery = "SELECT * FROM category";
             $getCategoriesResult = mysqli_query($con, $getCategoriesQuery);
-
+            $sn = 1;
             while ($categoryRow = mysqli_fetch_array($getCategoriesResult)) {
                 echo "<tr>";
-                echo "<td>" . $categoryRow['id'] . "</td>";
+                echo "<td>" . $sn++ . "</td>";
                 echo "<td>" . $categoryRow['category_name'] . "</td>";
                 echo "<td><a href='" . $_SERVER['PHP_SELF'] . "?delete_category=" . $categoryRow['id'] . "'>Delete</a></td>";
                 echo "</tr>";
