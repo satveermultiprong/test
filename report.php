@@ -60,11 +60,19 @@ $dateFilterEnd = isset($_GET['date_filter_end']) ? $_GET['date_filter_end'] : ''
       <?php 
 
      $total =0;
-
+     $limit = 1;
+     
+     if(isset($_GET['page'])){
+        $page = $_GET['page'];
+     }
+     else{
+        $page = 1;
+     }
+     $offset = ($page -1) * $limit;
 
     // Fetch data based on the filter
         if ($categoryFilter === 'all' && empty($dateFilterStart) && empty($dateFilterEnd)) {
-            $sqli = "SELECT expense.*,category.category_name FROM expense LEFT JOIN category  ON expense.category = category.id";
+            $sqli = "SELECT expense.*,category.category_name FROM expense LEFT JOIN category  ON expense.category = category.id LIMIT {$offset},{$limit}";
 
         } elseif ($categoryFilter === 'all' && !empty($dateFilterStart) && !empty($dateFilterEnd)) {
             $sqli = "SELECT expense.*,category.category_name FROM expense LEFT JOIN category  ON expense.category = category.id WHERE expanse_date BETWEEN '$dateFilterStart' AND '$dateFilterEnd'";
@@ -120,6 +128,41 @@ $dateFilterEnd = isset($_GET['date_filter_end']) ? $_GET['date_filter_end'] : ''
       </tr>
       
   </table>
+
+  <?php
+ $sql = "SELECT expense.*,category.category_name FROM expense LEFT JOIN category  ON expense.category = category.id";
+ $result = mysqli_query($con, $sql);
+ if (mysqli_num_rows($result) > 0) {
+    $total_records = mysqli_num_rows($result);
+    $total_page = ceil($total_records / $limit);
+
+    echo '<ul class="pagination report-pagination" >';
+    
+    if ($page > 1) {
+        echo '<li><a href="report.php?page=' . ($page - 1) . '">prev</a></li>';
+    }
+
+    $start_page = max($page - 2, 1);
+    $end_page = min($start_page + 1, $total_page);
+
+    for ($i = $start_page; $i <= $end_page; $i++) {
+        $active = ($i == $page) ? "active" : "";
+        echo '<li class="' . $active . '"><a href="report.php?page=' . $i . '">' . $i . '</a></li>';
+    }
+
+    if ($total_page > $end_page) {
+        echo '<li><span>...</span></li>';
+        echo '<li><a href="report.php?page=' . ($end_page + 1) . '">' . ($end_page + 1) . '</a></li>';
+    }
+
+    if ($total_page > $page) {
+        echo '<li><a href="report.php?page=' . ($page + 1) . '">next</a></li>';
+    }
+
+    echo '</ul>';
+}
+
+  ?>
   </div>
 </body>
 </html>

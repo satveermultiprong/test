@@ -34,8 +34,11 @@ require("timeout.php");
     <div class="sidebar" id="sidebar">
         <a href="deshboard.php"> <h1>Multi-Expense</h1></a>
            
-            <div class="content">
+            <!-- <div class="content">
             <a href="deshboard.php" id="desh"><i class="material-icons" foraccesskey="desh" >&#xe871;</i> Dashboard</a>
+            </div> -->
+              <div class="content">
+            <a href="deshboard.php" id="desh"><i class="material-icons" >dashboard</i> Dashboard</a>
             </div>
 
             <div class="content">

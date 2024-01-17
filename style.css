@@ -300,3 +300,28 @@ td {
 .main h2{
     font-size: 3vw;
 }
+.report-pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.report-pagination li {
+    margin: 0 5px;
+}
+
+.report-pagination a, .report-pagination span {
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.report-pagination .active {
+    background-color: #4CAF50;
+    color: white;
+}

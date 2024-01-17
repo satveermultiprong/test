@@ -142,7 +142,7 @@ if (isset($_GET['delete_expense'])) {
 
         <input type="submit" value="Add" name="submit">
     </form>
-   <h2>Our Twoday Expense</h2>
+   <h2>Our Today Expense</h2>
    
     <table>
         <tr>
