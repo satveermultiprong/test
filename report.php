@@ -60,7 +60,7 @@ $dateFilterEnd = isset($_GET['date_filter_end']) ? $_GET['date_filter_end'] : ''
       <?php 
 
      $total =0;
-     $limit = 1;
+     $limit = 4;
      
      if(isset($_GET['page'])){
         $page = $_GET['page'];

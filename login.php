@@ -5,7 +5,7 @@ $msg="";
 if(isset($_POST['submit'])){
    
         $username = $_POST['username'];
-    $password = $_POST['password'];
+        $password = md5($_POST['password']);
   
    $sql = "select * from admin WHERE username = '$username' AND password = '$password' " ;
 
@@ -32,7 +32,9 @@ if(mysqli_num_rows($result)>0){
     exit();
          }else {
             // $_SESSION["error"] = "username and password is not match";
-            $msg ="please enter valid username and password";
+            $msg ="Please Enter Valid Username and Password";
+
+
         }
        }
 ?>
@@ -42,7 +44,9 @@ if(mysqli_num_rows($result)>0){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media_style.css">
     <title>Document</title>
 </head>
 
@@ -57,27 +61,57 @@ if(mysqli_num_rows($result)>0){
         $pass = "";
     }
     ?>
+<div class="full">
 
-    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-    <div class="con">
-            <h1>Login</h1> <br> <br>
-           
+
+ <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+   <div class="con">
+    <div class="top">
+        <h3>Login</h3><br>
+        
             <label for="username" >Username</label><br>
             <input type="text" name="username" id="username" value="<?php echo $user ?>" ><br><BR>
-    
+        
             <label for="password" >Password</label><br>
-            <input type="password" name="password" id="password" value="<?php echo $pass ?>"><br> <br>
-
-            <input type="checkbox" name="remember_me" id="remember_me" >
-            <label for="remember_me" >Remember me</label><br><br>
-
-            <button type="submit" value="submit" name="submit">Submit</button><br>
-            <a href="sinup.php">sinup</a>
+            <div class="eye">
+                  <input type="password" name="password" id="password" value="<?php echo $pass ?>" >
+                  <i class="material-icons" id="eyeicon">visibility_off</i><br>
+            </div>
+          
+            <div class="remember">
+                <input type="checkbox" name="remember_me" id="remember_me" >
+                <!-- <span>remember_me</span> -->
+                <label for="remember_me" >Remember me</label><br><br>
+            </div>
+        </div>
+        
+         <div class="for">
+            <a href="#">Forgot Your Password</a>
+         </div>
+            <button type="submit" value="submit" name="submit">LOGIN</button><br>
+            <hr class="divider">
+            <div class="end">
+                <span>Need an account?</span>
+                <a href="sinup.php">SINUP</a>
+            </div>
             <div id="result" ><?php echo $msg ?></div>
     
         </div>
-                </form>
-        
+     </form>
+</div>
 </body>
+<script>
+    password = document.getElementById("password");
+    eyeicon = document.getElementById("eyeicon");
+    eyeicon.onclick = function () {
+        if (password.type == "password") {
+            password.type = "text";  // Use the assignment operator here
+            eyeicon.innerHTML = "visibility";
+        } else {
+            password.type = "password";  // Use the assignment operator here
+            eyeicon.innerHTML = "visibility_off";
+        }
+    }
+</script>
 
 </html> 

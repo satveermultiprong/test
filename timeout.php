@@ -17,6 +17,6 @@ if(!isset($_SESSION["logedin"]) || $_SESSION["logedin"]=!true){
     header("location:{$baseurl}login.php");
     exit();
 }
-header("Refresh:60*60");
+header("Refresh:60*61");
 
 ?>

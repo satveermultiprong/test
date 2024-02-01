@@ -14,21 +14,41 @@ body {
     /* display: block; */
     /* overflow: scroll; */
 }
-
-.con {
-    display: block;
-    position: relative;
-    left: 38%;
-    width: 20%;
-    /* height: 60%; */
-    background-color: #a4b0be;
-    text-align: center;
-    padding: 20px;
-    border: 2px solid black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.full{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.full form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.con h1 {
+.con {
+    color: #57606f;
+    display: block;
+    position: relative;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.top{
+    width: 100%;
+    text-align: left;
+}
+.con h3 {
     margin-bottom: 10px;
 }
 
@@ -38,24 +58,84 @@ body {
 
 .con input {
     box-sizing: border-box;
+    border: 2px solid #ced6e0;
     font-size: 15px;
-    width: 80%;
+    width: 100%;
     padding: 8px;
+    border-radius: 6px;
+    outline: none;
 }
+.eye{
+    border: 2px solid #ced6e0;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#eyeicon{
+    cursor: pointer;
+    padding: 0px 5px;
+    color: #0dcaf0;
 
+}
+#password{
+    box-sizing:content-box;
+    border:0px;
+    
+}
+.remember{
+    width: 100%; 
+    align-items: center;
+    /* justify-content: center; */
+    display: flex;
+}
+#remember_me{
+   padding: 2px;
+    width: 10%;
+}
 #result {
     color: red;
+    font-size: medium;
 }
-
+.divider{
+    width: 100%;
+    margin:20px 10px;
+    border-top:1px solid rgb(80, 79, 79) ;
+}
+.end{
+    width: 100%;
+    text-align: center;
+}
+.con span{
+    font-size: medium;
+    /* text-align: center; */
+}
 .con a {
-    text-decoration: none;
-    color: #3498db;
+    /* text-decoration: none; */
+    font-size: medium;
+    text-align: center;
     /* Set your desired link color */
 }
-
+.for{
+    width: 100%;
+    text-align: right;
+    padding: 5px 0px;
+}
 .con button {
     padding: 10px;
-
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #ff6b81;
+    font-size: medium;
+    transition: transform .3s; 
+    color: white;
+    box-shadow: 4px 4px 15px rgb(145, 143, 143);
+}
+.con button:hover{
+    transform: scale(1.2);
+    box-shadow:10px 10px  20px rgb(165, 165, 165);
 }
 
 nav {

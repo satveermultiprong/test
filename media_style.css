@@ -1,4 +1,7 @@
 @media screen and (max-width: 1100px) {
+    .con{
+        width:25vw;
+    }
     .charts {
         margin-top: 20px;
         /* border: 1px solid black; */
@@ -22,6 +25,9 @@
 }
 
 @media screen and (max-width: 700px) {
+    .con{
+        width:30vw;
+    }
     .material-symbols-outlined{
         display: flex;
     }
@@ -88,6 +94,9 @@ head{
 }
 
 @media screen and (max-width: 465px){
+    .con{
+        width:50vw;
+    }
     .sidebar {
         width: 40vw;
         left: -50vw;

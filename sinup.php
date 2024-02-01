@@ -5,7 +5,7 @@ if(isset($_POST['submit'])){
    $fullname =  $_POST['fullname'];
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+   $password = md5($_POST['password']);
 
     $sql = "INSERT INTO admin (fullname, username, email, password) VALUES
     ('$fullname', '$username', '$email', '$password')";
@@ -42,12 +42,13 @@ exit();
 </head>
 
 <body>
-  
+<div class="full">
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" >
-        <div class="con"><br>
-            <h1>Sinup</h1> <br> 
+        <div class="con">
+            <div class="top">
+                <h3>Sinup</h3><br>
             <label for="fullname" id="name">full name</label>
-            <input type="text" name="fullname" id="name" required><br><BR>
+            <input type="text" name="fullname" id="name" required><br><br>
 
                 <label for="username" id="username" >Username</label>
             <input type="text" name="username" id="username" required><br><BR>
@@ -57,14 +58,19 @@ exit();
     
             <label for="" id="password">Password</label>
             <input type="text" name="password" id="" required><br> <br>
-            
-            <button type="submit" value="submit" name="submit">Submit</button><br>
-            <a href="login.php">login</a>
-    
+            </div>
+            <button type="submit" value="submit" name="submit">SIGN UP</button><br>
+            <hr class="divider">
+            <div class="end">
+                
+                <span>Already a user?</span>
+                <a href="login.php">LOGIN</a>
+                
+            </div>
         </div>
         </form>
         
-
+</div>
 </body>
 
 </html>
